@@ -1,0 +1,6 @@
+.nav {
+  display: none;
+}
+.showNavBar:hover .nav {
+  display: block;
+}
