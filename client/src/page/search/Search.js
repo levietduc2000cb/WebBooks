@@ -34,10 +34,12 @@ function SearchPage() {
   }, [searchInput]);
 
   function displaySearch() {
-    if (books.length > 0) {
-      return <DisplayBooks books={books} title={"Sách Tìm Kiếm"} />;
-    } else if (books.length === 0) {
-      return <div className="my-[30vh]">Không tìm thấy kết quả tìm kiếm</div>;
+    if (books) {
+      if (books.length > 0) {
+        return <DisplayBooks books={books} title={"Sách Tìm Kiếm"} />;
+      } else if (books.length === 0) {
+        return <div className="my-[30vh]">Không tìm thấy kết quả tìm kiếm</div>;
+      }
     } else {
       return (
         <div className="flex items-center justify-center pt-10">
