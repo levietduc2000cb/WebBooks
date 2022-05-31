@@ -7,8 +7,7 @@ import DisplayBooks from "../../components/displayBooks/displayBook";
 import * as api from "../../config/apiBackEnd";
 
 function SearchPage() {
-  const [books, setBooks] = useState([]);
-  const [search, setSearch] = useState(false);
+  const [books, setBooks] = useState(null);
   const [error, setError] = useState(false);
   const params = useParams();
   const searchInput = params.searchInput;
@@ -26,7 +25,6 @@ function SearchPage() {
           .then((data) => data);
         if (res) {
           setBooks(res.data);
-          setSearch(true);
         }
       } catch (error) {
         setError(true);
@@ -36,9 +34,9 @@ function SearchPage() {
   }, [searchInput]);
 
   function displaySearch() {
-    if (books.length > 0 && search) {
+    if (books.length > 0) {
       return <DisplayBooks books={books} title={"Sách Tìm Kiếm"} />;
-    } else if (books.length === 0 && search) {
+    } else if (books.length === 0) {
       return <div className="my-[30vh]">Không tìm thấy kết quả tìm kiếm</div>;
     } else {
       return (
