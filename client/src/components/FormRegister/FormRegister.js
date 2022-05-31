@@ -101,7 +101,7 @@ function FormRegister(props) {
       </form>
       {error && (
         <Notification
-          title="Đăng ký thất bại do trùng Email hoặc Mật khẩu"
+          title="Đăng ký thất bại do trùng Email hoặc Mật khẩu hoặc thiếu Avatar"
           stateCreate="Error"
           onClick={() => {
             dispatch(setErrorDefault());
