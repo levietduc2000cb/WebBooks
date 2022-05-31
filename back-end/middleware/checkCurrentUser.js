@@ -12,7 +12,7 @@ exports.checkCurrentUser = (req, res, next) => {
     // Verify token
     try {
       const { userId } = jwt.verify(token, process.env.APP_SECRET);
-      req.body["userId"] = { userId };
+      req.body["userId"] = userId;
       next();
     } catch (error) {
       req.body["userId"] = null;

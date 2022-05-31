@@ -57,7 +57,8 @@ exports.getCurrentUser = async (req, res, next) => {
   try {
     const data = { user: null };
     if (req.body["userId"]) {
-      const user = await User.findOne({ id: req.body["userId"] });
+      const user = await User.findById({ _id: req.body["userId"] });
+      console.log("USER : ", user);
       data.user = { userName: user.name, avatar: user.avatar };
     }
     res.status(200).json({
@@ -65,6 +66,6 @@ exports.getCurrentUser = async (req, res, next) => {
       data: data,
     });
   } catch (error) {
-    res.json(error);
+    res.json(data);
   }
 };

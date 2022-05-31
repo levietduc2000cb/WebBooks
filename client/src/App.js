@@ -5,10 +5,14 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { fetchUser } from "./redux/Slices/AuthSlice";
 import { useDispatch } from "react-redux";
+import { TOKEN_USER } from "./constant";
+
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchUser());
+    if (localStorage.getItem(TOKEN_USER)) {
+      dispatch(fetchUser());
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
