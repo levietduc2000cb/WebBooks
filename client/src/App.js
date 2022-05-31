@@ -2,14 +2,14 @@ import "./App.css";
 import { PUBLIC_ROUTER, PRIVATE_ROUTER } from "./router/router";
 import ProtectRouter from "./router/ProtectRouter";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { fetchUser } from "./redux/Slices/AuthSlice";
 import { useDispatch } from "react-redux";
 import { TOKEN_USER } from "./constant";
 
 function App() {
   const dispatch = useDispatch();
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (localStorage.getItem(TOKEN_USER)) {
       dispatch(fetchUser());
     }
