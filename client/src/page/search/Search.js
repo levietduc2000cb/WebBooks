@@ -37,10 +37,13 @@ function SearchPage() {
 
   function displaySearch() {
     if (books.length > 0 && search) {
+      setSearch(false);
       return <DisplayBooks books={books} title={"Sách Tìm Kiếm"} />;
     } else if (books.length === 0 && search) {
+      setSearch(false);
       return <div className="my-[30vh]">Không tìm thấy kết quả tìm kiếm</div>;
     } else {
+      setSearch(false);
       return (
         <div className="flex items-center justify-center pt-10">
           <Spinner width="w-1/12" height="h-1/12" />
