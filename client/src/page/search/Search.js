@@ -24,7 +24,7 @@ function SearchPage() {
           .then((response) => response.json())
           .then((data) => data);
         if (res) {
-          setBooks(res.data);
+          setBooks([...res.data]);
         }
       } catch (error) {
         setError(true);
